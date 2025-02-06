@@ -60,4 +60,42 @@ document.addEventListener('DOMContentLoaded', function() {
       overlay.classList.remove('active');
       document.body.classList.remove('menu-open');
     });
+
+
+
+
+
+
+  // Header scroll effect
+  const header = document.querySelector('header');
+  const whiteLogo = header.querySelector('img.hidden.lg\\:block');
+  const coloredLogo = header.querySelector('img.lg\\:hidden');
+  
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      header.classList.add('bg-white', 'shadow-md');
+      // Change logo visibility
+      whiteLogo.classList.remove('lg:block');
+      coloredLogo.classList.remove('lg:hidden');
+      // Change menu text color
+      const menuItems = header.querySelectorAll('.lg\\:text-white');
+      menuItems.forEach(item => {
+        item.classList.remove('lg:text-white');
+        item.classList.add('lg:text-black');
+      });
+    } else {
+      header.classList.remove('bg-white', 'shadow-md');
+      // Restore logo visibility
+      whiteLogo.classList.add('lg:block');
+      coloredLogo.classList.add('lg:hidden');
+      // Restore menu text color
+      const menuItems = header.querySelectorAll('nav a, nav button');
+      menuItems.forEach(item => {
+        if (!item.classList.contains('lg:text-white')) {
+          item.classList.remove('lg:text-black');
+          item.classList.add('lg:text-white');
+        }
+      });
+    }
+  });
 });
