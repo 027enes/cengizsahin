@@ -284,17 +284,21 @@ document.addEventListener("DOMContentLoaded", function() {
     // Footer Section
     const footerSection = document.querySelector('.footer-section');
     if (footerSection) {
+        // Üst kısım animasyonları
         const title = footerSection.querySelector('.animate-title');
         const button = footerSection.querySelector('.animate-button');
-        const columns = footerSection.querySelectorAll('.lg\\:w-1\\/4');
-        const socialLinks = footerSection.querySelectorAll('.flex.items-center.gap-4 a');
-        const logo = footerSection.querySelector('svg');
+        const divider = footerSection.querySelector('.bg-gray-50\\/30');
 
-        gsap.set([title, button], { opacity: 0, y: 30 });
-        gsap.set(columns, { opacity: 0, y: 30 });
-        gsap.set(socialLinks, { opacity: 0, scale: 0 });
-        gsap.set(logo, { opacity: 0 });
-
+        // Grid kolonları
+        const footerColumns = footerSection.querySelectorAll('.grid.grid-cols-1.lg\\:grid-cols-4 > div');
+        const logo = footerSection.querySelector('img.h-20');
+        
+        // Alt kısım
+        const bottomDivider = footerSection.querySelector('.bg-gray-50\\/30:last-child');
+        const bottomSection = footerSection.querySelector('.py-2');
+        const socialIcons = footerSection.querySelectorAll('.w-10.h-10');
+        
+        // Timeline oluştur
         const tl = gsap.timeline({
             scrollTrigger: {
                 trigger: footerSection,
@@ -304,32 +308,63 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
 
+        // Başlangıç durumları
+        gsap.set([title, button], { opacity: 0, y: 30 });
+        gsap.set(divider, { scaleX: 0 });
+        gsap.set(footerColumns, { opacity: 0, y: 20 });
+        gsap.set(logo, { opacity: 0, y: 20 });
+        gsap.set(bottomDivider, { scaleX: 0 });
+        gsap.set(bottomSection, { opacity: 0 });
+        gsap.set(socialIcons, { opacity: 0, scale: 0 });
+
+        // Animasyon sıralaması
         tl.to(title, {
             opacity: 1,
             y: 0,
-            duration: 0.8
+            duration: 0.8,
+            ease: "power2.out"
         })
         .to(button, {
             opacity: 1,
             y: 0,
-            duration: 0.8
-        }, "-=0.6")
-        .to(columns, {
-            opacity: 1,
-            y: 0,
             duration: 0.8,
-            stagger: 0.2
+            ease: "power2.out"
         }, "-=0.6")
-        .to(socialLinks, {
-            opacity: 1,
-            scale: 1,
-            duration: 0.5,
-            stagger: 0.1
+        .to(divider, {
+            scaleX: 1,
+            duration: 0.8,
+            ease: "power2.inOut"
         }, "-=0.4")
         .to(logo, {
             opacity: 1,
-            duration: 0.8
-        }, "-=0.4");
+            y: 0,
+            duration: 0.8,
+            ease: "power2.out"
+        })
+        .to(footerColumns, {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            stagger: 0.2,
+            ease: "power2.out"
+        }, "-=0.6")
+        .to(bottomDivider, {
+            scaleX: 1,
+            duration: 0.8,
+            ease: "power2.inOut"
+        }, "-=0.4")
+        .to(bottomSection, {
+            opacity: 1,
+            duration: 0.8,
+            ease: "power2.out"
+        })
+        .to(socialIcons, {
+            opacity: 1,
+            scale: 1,
+            duration: 0.5,
+            stagger: 0.1,
+            ease: "back.out(1.7)"
+        }, "-=0.6");
     }
 
 
