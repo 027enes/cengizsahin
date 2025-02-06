@@ -20,7 +20,21 @@ function toggleDropdown(button) {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    new PureCounter();
+    // PureCounter'ı başlat
+    new PureCounter({
+        selector: '.purecounter', // sayaç class'ı
+        start: 0, 
+        end: 100,
+        duration: 2,
+        delay: 10,
+        once: true,
+        repeat: false,
+        decimals: 0,
+        legacy: true,
+        filesizing: false,
+        currency: false,
+        separator: false,
+    });
 
     // Sayfa yüklendiğinde ve resize olduğunda kontrol et
     window.addEventListener('resize', () => {

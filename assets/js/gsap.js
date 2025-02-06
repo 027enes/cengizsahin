@@ -63,8 +63,8 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
+    // Projects Section
     const projectsSection = document.querySelector('.projects-section');
-    
     if (projectsSection) {
         // Başlık animasyonları
         const titles = projectsSection.querySelectorAll('.animate-subtitle, .animate-title');
@@ -168,9 +168,8 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    // About section'ı seç
+    // About Section
     const aboutSection = document.querySelector('.about-section');
-    
     if (aboutSection) {
         // Timeline oluştur
         const tl = gsap.timeline({
@@ -246,35 +245,28 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
+    // Stats Section
     const statsSection = document.querySelector('.stats-section');
-    
     if (statsSection) {
         // Her bir istatistik item'ı için animasyon
         const statItems = statsSection.querySelectorAll('.flex.gap-2.items-center');
         
         statItems.forEach((item, index) => {
-            // Başlangıç durumu
             gsap.set(item, { 
                 opacity: 0,
                 y: 30
             });
 
-            // Animasyon
             gsap.to(item, {
                 opacity: 1,
                 y: 0,
                 duration: 0.8,
-                delay: 0.2 + (index * 0.2), // Her item için kademeli gecikme
+                delay: 0.2 + (index * 0.2),
                 ease: "power2.out",
                 onComplete: () => {
-                    // Sayaç animasyonunu başlat
-                    const counter = item.querySelector('.purecounter');
-                    if (counter && typeof PureCounter === 'function') {
-                        new PureCounter({
-                            selector: counter,
-                            duration: 2,
-                            once: true
-                        });
+                    const counter = item.querySelector('span[data-purecounter-end]');
+                    if (counter) {
+                        counter.classList.add('purecounter');
                     }
                 }
             });
@@ -367,41 +359,35 @@ document.addEventListener("DOMContentLoaded", function() {
         }, "-=0.6");
     }
 
-
-      // GSAP Paralaks efekti
-      gsap.registerPlugin(ScrollTrigger);
-      
-      gsap.utils.toArray('.parallax-image').forEach(image => {
+    // Parallax efekti
+    gsap.utils.toArray('.parallax-image').forEach(image => {
         const speed = image.dataset.speed;
         
         gsap.to(image, {
-          yPercent: () => speed * 15,
-          ease: "none",
-          scrollTrigger: {
-            trigger: image,
-            start: "top bottom",
-            end: "bottom top",
-            scrub: 1,
-          }
+            yPercent: () => speed * 15,
+            ease: "none",
+            scrollTrigger: {
+                trigger: image,
+                start: "top bottom",
+                end: "bottom top",
+                scrub: 1,
+            }
         });
-      });
+    });
 
-      gsap.fromTo("#scrollingText", 
+    // Scrolling Text
+    gsap.fromTo("#scrollingText", 
+        { x: 0 },
         {
-          x: 0, // Başlangıç pozisyonu
-        },
-        {
-          x: -500, // Bitiş pozisyonu (sola doğru)
-          ease: "none",
-          scrollTrigger: {
-            trigger: "#scrollingText",
-            start: "top center", // Animasyon başlangıç noktası
-            end: "bottom top", // Animasyon bitiş noktası
-            scrub: 1, // Scroll ile senkronize hareket için
-            markers: false // Geliştirme sırasında true yapabilirsiniz
-          }
+            x: -500,
+            ease: "none",
+            scrollTrigger: {
+                trigger: "#scrollingText",
+                start: "top center",
+                end: "bottom top",
+                scrub: 1,
+                markers: false
+            }
         }
-      );
-
-
+    );
 });
