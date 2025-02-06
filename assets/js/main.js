@@ -61,41 +61,71 @@ document.addEventListener('DOMContentLoaded', function() {
       document.body.classList.remove('menu-open');
     });
 
-
-
-
-
-
-  // Header scroll effect
-  const header = document.querySelector('header');
-  const whiteLogo = header.querySelector('img.hidden.lg\\:block');
-  const coloredLogo = header.querySelector('img.lg\\:hidden');
-  
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-      header.classList.add('bg-white', 'shadow-md');
-      // Change logo visibility
-      whiteLogo.classList.remove('lg:block');
-      coloredLogo.classList.remove('lg:hidden');
-      // Change menu text color
-      const menuItems = header.querySelectorAll('.lg\\:text-white');
-      menuItems.forEach(item => {
-        item.classList.remove('lg:text-white');
-        item.classList.add('lg:text-black');
-      });
-    } else {
-      header.classList.remove('bg-white', 'shadow-md');
-      // Restore logo visibility
-      whiteLogo.classList.add('lg:block');
-      coloredLogo.classList.add('lg:hidden');
-      // Restore menu text color
-      const menuItems = header.querySelectorAll('nav a, nav button');
-      menuItems.forEach(item => {
-        if (!item.classList.contains('lg:text-white')) {
-          item.classList.remove('lg:text-black');
-          item.classList.add('lg:text-white');
+    // Throttle fonksiyonu
+    function throttle(func, limit) {
+      let inThrottle;
+      return function() {
+        const args = arguments;
+        const context = this;
+        if (!inThrottle) {
+          func.apply(context, args);
+          inThrottle = true;
+          setTimeout(() => inThrottle = false, limit);
         }
+      }
+    }
+
+    // Sadece masaüstü için scroll efekti
+    const header = document.querySelector('header');
+    const menuItems = header.querySelectorAll('nav a, nav button');
+    const whiteLogo = header.querySelector('img.hidden.lg\\:block');
+    const coloredLogo = header.querySelector('img.lg\\:hidden');
+
+    // Başlangıçta menü öğelerine beyaz renk ekle
+    if (window.innerWidth >= 1024) {
+      menuItems.forEach(item => {
+        item.classList.add('lg:text-white');
       });
     }
-  });
+
+    window.addEventListener('scroll', throttle(() => {
+      // Sadece masaüstünde çalış
+      if (window.innerWidth >= 1024) {
+        if (window.scrollY > 75) {
+          header.classList.add('bg-white', 'shadow-md');
+          // Logo ve menü renk değişimleri
+          whiteLogo.classList.remove('lg:block');
+          coloredLogo.classList.remove('lg:hidden');
+          
+          menuItems.forEach(item => {
+            if (item.classList.contains('lg:text-white')) {
+              item.classList.remove('lg:text-white');
+              item.classList.add('lg:text-black');
+            }
+          });
+        } else {
+          header.classList.remove('bg-white', 'shadow-md');
+          // Logo ve menü renklerini geri al
+          whiteLogo.classList.add('lg:block');
+          coloredLogo.classList.add('lg:hidden');
+          
+          menuItems.forEach(item => {
+            if (item.classList.contains('lg:text-black')) {
+              item.classList.remove('lg:text-black');
+              item.classList.add('lg:text-white');
+            }
+          });
+        }
+      }
+    }, 100));
+
+    // Resize olayında da kontrol et
+    window.addEventListener('resize', () => {
+      if (window.innerWidth >= 1024 && window.scrollY <= 150) {
+        menuItems.forEach(item => {
+          item.classList.remove('lg:text-black');
+          item.classList.add('lg:text-white');
+        });
+      }
+    });
 });

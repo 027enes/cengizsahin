@@ -227,9 +227,24 @@
   }
 
   header {
-    position: relative;
+    position: fixed;
+    width: 100%;
     z-index: 999;
     background: white;
+    transition: transform 0.3s ease-in-out;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  header.fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translateY(0);
+  }
+
+  header.hide {
+    position: fixed;
+    transform: translateY(-100%);
   }
 }
 
