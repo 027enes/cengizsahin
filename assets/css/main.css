@@ -1,0 +1,316 @@
+@import "tailwindcss";
+
+@theme{
+    --font-poppins: 'Poppins', sans-serif;
+    --container-8xl: 1456px;
+    --container-9xl: 1536px;
+    --color-sahin:#0f5951;
+    --color-sahin-hover:#19857a;
+    --radius-8xl: 40px;
+    --radius-6xl: 30px;
+    --font-playfair: 'Playfair Display', serif;
+}
+*{
+    font-family: var(--font-poppins);
+}
+.container {
+    @apply max-w-7xl mx-auto px-4;
+}
+
+
+.swiper {
+    width: 100%;
+    height: 100%;
+  }
+
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+  }
+
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+    object-fit: cover;
+  }
+  .swiper-pagination {
+    display: inline-flex !important;
+    padding: 10px 20px !important;
+    margin: 0 auto !important;
+    border-radius: 10px 10px 0 0 !important;
+    bottom: 0 !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: auto !important;
+    min-width: 320px !important;
+    justify-content: center !important;
+  }
+
+  .swiper-pagination-bullet {
+    width: 12px !important;
+    height: 12px !important;
+    background: rgba(0, 0, 0, 0.2) !important;
+    opacity: 1 !important;
+    margin: 0 4px !important;
+    border:1px solid #fff !important;
+  }
+
+  .swiper-pagination-bullet-active {
+    background: #0f5951 !important;
+    width: 20px !important;
+    border-radius: 10px !important;
+  }
+  .swiper-pagination-bullet-active-main {
+    transform: scale(1.2) !important;
+  }
+
+/* Slide animasyonları */
+.homeSlider .swiper-slide-active .animate-title {
+  animation: slideUp 1s ease forwards 0.5s;
+  opacity: 0;
+}
+
+.homeSlider .swiper-slide-active .animate-subtitle {
+  animation: slideUp 1s ease forwards 0.7s;
+  opacity: 0;
+}
+
+.homeSlider .swiper-slide-active .animate-text {
+  animation: slideUp 1s ease forwards 0.9s;
+  opacity: 0;
+}
+
+.homeSlider .swiper-slide-active .animate-button {
+  animation: slideUp 1s ease forwards 1.1s;
+  opacity: 0;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Fade efekti için */
+.homeSlider .swiper-slide {
+  transition: opacity 0.6s ease;
+}
+
+.homeSlider .swiper-slide:not(.swiper-slide-active) {
+  opacity: 0 !important;
+}
+
+/* Arka plan zoom efekti */
+@media (min-width: 768px) {
+  .homeSlider .swiper-slide-active {
+    background-size: 100% !important;
+  }
+  .homeSlider .swiper-slide {
+    background-size: 110% !important;
+    transition: background-size 8s ease !important;
+  }
+}
+@media (max-width: 767px) {
+  .homeSlider .swiper-slide-active {
+    background-size: cover !important;
+  }
+  .homeSlider .swiper-slide {
+    background-size: cover !important;
+  }
+}
+
+
+/* Dropdown animasyonları */
+.dropdown-menu {
+    transform-origin: top;
+    transform: scaleY(0);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 200px;
+    background: white;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Desktop hover animasyonu */
+@media (min-width: 1024px) {
+    .group:hover .dropdown-menu {
+        transform: scaleY(1);
+        opacity: 1;
+        visibility: visible;
+    }
+
+    /* Parent elementi relative yaparak dropdown'ın konumunu sabitle */
+    .group {
+        position: relative;
+    }
+}
+
+/* Mobil dropdown stilleri */
+@media (max-width: 1023px) {
+    .dropdown-menu {
+      position: static !important;
+      box-shadow: none !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      transform: scaleY(0);
+      max-height: 0;
+      transition: all 0.3s ease;
+    }
+    
+    .show-dropdown {
+      transform: scaleY(1) !important;
+      max-height: fit-content !important;
+      opacity: 1 !important;
+      visibility: visible !important;
+      margin-bottom: 0 !important;
+    }
+  
+    .dropdown-menu li a {
+      padding-left: 0.5rem !important;
+    }
+}
+  
+/* Ok ikonu animasyonu */
+.dropdown-arrow {
+    transition: transform 0.3s ease;
+}
+  
+.show-dropdown + .dropdown-arrow,
+.group:hover .dropdown-arrow {
+    transform: rotate(180deg);
+}
+
+/* Mobil menü stilleri */
+.mobile-menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 998;
+}
+
+@media (max-width: 1023px) {
+  #menu {
+    position: fixed;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    top: 110px;
+    height: calc(100vh - 110px);
+    visibility: hidden;
+    opacity: 0;
+    z-index: 999;
+    background: white;
+  }
+
+  #menu.active {
+    transform: translateX(0);
+    visibility: visible;
+    opacity: 1;
+  }
+
+  header {
+    position: relative;
+    z-index: 999;
+    background: white;
+  }
+}
+
+.mobile-menu-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+body.menu-open {
+    overflow: hidden;
+    padding-right: var(--scrollbar-width);
+  }
+
+  #menu.active {
+    z-index: 50;
+  }
+
+
+  .truncatee{
+    -webkit-line-clamp: 6 !important;
+    display: -webkit-box !important;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Swiper navigation butonları için özel stiller */
+.swiper-button-next,
+.swiper-button-prev {
+  width: auto !important;
+  min-width: 40px !important;
+  height: 40px !important;
+  background: white !important;
+  border: 1px solid #E5E7EB !important;
+  border-radius: 25px !important;
+  color: #000 !important;
+  transition: all 0.3s ease !important;
+  position: relative !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  background: var(--color-sahin) !important;
+  border-color: var(--color-sahin) !important;
+  color: white !important;
+}
+
+.swiper-button-next:after,
+.swiper-button-prev:after {
+  font-size: 16px !important;
+  font-weight: bold !important;
+  position: static !important;
+  margin: 0 !important;
+  transform: none !important;
+}
+
+
+.swiper-button-next:before {
+  visibility: hidden !important;
+  opacity: 0 !important;
+}
+
+.swiper-button-next {
+  left: auto !important;
+  right: -30px !important;
+}
+
+.swiper-button-prev {
+  left: -100px !important;
+  flex-direction: row-reverse !important;
+}
+.content-lines-inner {
+  position: absolute;
+  width: 100%;
+  left: 50%;
+  margin-left: -570px;
+  top: 0;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+}
