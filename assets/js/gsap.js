@@ -390,4 +390,230 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         }
     );
+
+    // Contact Section
+    const contactSection = document.querySelector('.contact-section');
+    if (contactSection) {
+        // Ana timeline'ı oluştur
+        const tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: contactSection,
+                start: "top 80%",
+                toggleActions: "play none none none"
+            }
+        });
+
+        // Sol taraf (Form) animasyonları
+        const formSide = contactSection.querySelector('form').parentElement;
+        gsap.set(formSide, { opacity: 0, x: -50 });
+        
+        // Form inputları
+        const formElements = contactSection.querySelectorAll('form input, form textarea, form button');
+        gsap.set(formElements, { opacity: 0, y: 20 });
+
+        // Sağ taraf (İletişim bilgileri) animasyonları
+        const contactCards = contactSection.querySelectorAll('.grid-cols-1.md\\:grid-cols-2 > div');
+        gsap.set(contactCards, { opacity: 0, y: 30 });
+
+        // Başlık ve açıklama
+        const title = contactSection.querySelector('.animate-title');
+        const description = contactSection.querySelector('.text-gray-500');
+        
+        // Timeline'a animasyonları ekle
+        tl.fromTo(title, {
+            opacity: 0,
+            x: -30
+        }, {
+            opacity: 1,
+            x: 0,
+            duration: 0.8,
+            ease: "power2.out"
+        })
+        .fromTo(description, {
+            opacity: 0,
+            x: 30
+        }, {
+            opacity: 1,
+            x: 0,
+            duration: 0.8,
+            ease: "power2.out"
+        }, "-=0.6")
+        .fromTo(formSide, {
+            opacity: 0,
+            x: -50
+        }, {
+            opacity: 1,
+            x: 0,
+            duration: 0.8,
+            ease: "power2.out"
+        }, "-=0.4")
+        .to(formElements, {
+            opacity: 1,
+            y: 0,
+            duration: 0.6,
+            stagger: 0.1,
+            ease: "power2.out"
+        }, "-=0.4")
+        .to(contactCards, {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            stagger: 0.15,
+            ease: "power2.out"
+        }, "-=0.8");
+
+        // İletişim kartları için hover efekti
+        contactCards.forEach(card => {
+            const iconContainer = card.querySelector('.flex.items-center');
+            const icon = iconContainer?.querySelector('svg');
+            
+            if (card && iconContainer) {
+                card.addEventListener('mouseenter', () => {
+                    gsap.to(iconContainer, {
+                        y: -5,
+                        duration: 0.3,
+                        ease: "power2.out"
+                    });
+                    if (icon) {
+                        gsap.to(icon, {
+                            scale: 1.1,
+                            duration: 0.3,
+                            ease: "power2.out"
+                        });
+                    }
+                });
+
+                card.addEventListener('mouseleave', () => {
+                    gsap.to(iconContainer, {
+                        y: 0,
+                        duration: 0.3,
+                        ease: "power2.out"
+                    });
+                    if (icon) {
+                        gsap.to(icon, {
+                            scale: 1,
+                            duration: 0.3,
+                            ease: "power2.out"
+                        });
+                    }
+                });
+            }
+        });
+
+        // Form input'ları için focus animasyonu
+        formElements.forEach(element => {
+            if (element.tagName.toLowerCase() !== 'button') {
+                element.addEventListener('focus', () => {
+                    gsap.to(element, {
+                        scale: 1.02,
+                        duration: 0.3,
+                        ease: "power2.out"
+                    });
+                });
+
+                element.addEventListener('blur', () => {
+                    gsap.to(element, {
+                        scale: 1,
+                        duration: 0.3,
+                        ease: "power2.out"
+                    });
+                });
+            }
+        });
+    }
+
+    // Misyon Vizyon Swiper ve Animasyonları
+    const aboutSwiper = new Swiper(".about-swiper", {
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+        speed: 800,
+        effect: "fade",
+        fadeEffect: {
+            crossFade: true
+        },
+        on: {
+            init: function() {
+                // İlk slide için animasyonu başlat
+                animateSlideContent(this.slides[0]);
+            },
+            slideChange: function() {
+                // Slide değişiminde animasyonu başlat
+                animateSlideContent(this.slides[this.activeIndex]);
+            }
+        }
+    });
+
+    // ScrollTrigger'ı daha erken tetiklemek için ayarları güncelleyelim
+    ScrollTrigger.create({
+        trigger: ".misviz-section",
+        start: "top bottom", // Değiştirildi: Seksiyon viewport'un alt kısmına geldiğinde tetiklenecek
+        onEnter: () => {
+            aboutSwiper.slideToLoop(0);
+            // İlk slide'ın animasyonunu manuel olarak tetikle
+            if (aboutSwiper.slides[0]) {
+                animateSlideContent(aboutSwiper.slides[0]);
+            }
+        },
+        // Debug için markers'ı açabilirsiniz
+        // markers: true
+    });
+
+    function animateSlideContent(slide) {
+        // Önceki animasyonları temizle
+        gsap.set(slide.querySelector('.slide-content'), {
+            clearProps: "all"
+        });
+        gsap.set(slide.querySelector('.slide-image'), {
+            clearProps: "all"
+        });
+
+        // Timeline oluştur
+        const tl = gsap.timeline();
+
+        // Metin animasyonu
+        tl.fromTo(slide.querySelector('.slide-content'), {
+            x: -100,
+            opacity: 0
+        }, {
+            x: 0,
+            opacity: 1,
+            duration: 1,
+            ease: "power2.out"
+        });
+
+        // Başlık için özel animasyon
+        tl.fromTo(slide.querySelector('h1'), {
+            y: 20,
+            opacity: 0
+        }, {
+            y: 0,
+            opacity: 1,
+            duration: 0.6,
+            ease: "power2.out"
+        }, "-=0.8");
+
+        // Paragraf için özel animasyon
+        tl.fromTo(slide.querySelector('p'), {
+            y: 20,
+            opacity: 0
+        }, {
+            y: 0,
+            opacity: 1,
+            duration: 0.6,
+            ease: "power2.out"
+        }, "-=0.4");
+
+        // Resim animasyonu
+        tl.fromTo(slide.querySelector('.slide-image'), {
+            scale: 1.2,
+            opacity: 0
+        }, {
+            scale: 1,
+            opacity: 1,
+            duration: 1.2,
+            ease: "power2.out"
+        }, "-=1");
+    }
 });

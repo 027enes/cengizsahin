@@ -271,8 +271,8 @@ body.menu-open {
 }
 
 /* Swiper navigation butonları için özel stiller */
-.swiper-button-next,
-.swiper-button-prev {
+.projectsSlider .swiper-button-next,
+.projectsSlider .swiper-button-prev {
   width: auto !important;
   min-width: 40px !important;
   height: 40px !important;
@@ -288,15 +288,15 @@ body.menu-open {
   gap: 8px !important;
 }
 
-.swiper-button-next:hover,
-.swiper-button-prev:hover {
+.projectsSlider .swiper-button-next:hover,
+.projectsSlider .swiper-button-prev:hover {
   background: var(--color-sahin) !important;
   border-color: var(--color-sahin) !important;
   color: white !important;
 }
 
-.swiper-button-next:after,
-.swiper-button-prev:after {
+.projectsSlider .swiper-button-next:after,
+.projectsSlider .swiper-button-prev:after {
   font-size: 16px !important;
   font-weight: bold !important;
   position: static !important;
@@ -305,17 +305,17 @@ body.menu-open {
 }
 
 
-.swiper-button-next:before {
+.projectsSlider .swiper-button-next:before {
   visibility: hidden !important;
   opacity: 0 !important;
 }
 
-.swiper-button-next {
+.projectsSlider .swiper-button-next {
   left: auto !important;
   right: -30px !important;
 }
 
-.swiper-button-prev {
+.projectsSlider .swiper-button-prev {
   left: -100px !important;
   flex-direction: row-reverse !important;
 }
@@ -328,4 +328,57 @@ body.menu-open {
   height: 100%;
   z-index: -1;
   pointer-events: none;
+}
+
+
+.about-swiper .swiper-button-next,
+.about-swiper .swiper-button-prev {
+  width: 60px !important;
+  height: 60px !important;
+  background: white !important;
+  border: 1px solid #E5E7EB !important;
+  border-radius: 50% !important;
+  color: #000 !important;
+  transition: all 0.3s ease !important;
+  position: relative !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+}
+.about-swiper .swiper-button-next:hover,
+.about-swiper .swiper-button-prev:hover {
+  background: var(--color-sahin) !important;
+  border-color: var(--color-sahin) !important;
+  color: white !important;
+}
+
+
+.about-swiper .swiper-button-next:after,
+.about-swiper .swiper-button-prev:after {
+  font-size: 16px !important;
+  font-weight: bold !important;
+  position: static !important;
+  margin: 0 !important;
+  transform: none !important;
+}
+.about-swiper .swiper-button-next {
+  left: auto !important;
+  right: -100px !important;
+  top: 17px !important;
+}
+
+.about-swiper .swiper-button-prev {
+  left: 30px !important;
+  flex-direction: row-reverse !important;
+  bottom: 20px !important;
+}
+
+@media (max-width: 767px) {
+  .about-swiper .swiper-button-next {
+    right: -180px !important;
+  }
+  .about-swiper .swiper-button-prev {
+    left: 100px !important;
+  }
 }
