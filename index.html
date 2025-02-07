@@ -19,8 +19,8 @@
       <div class="container mx-auto px-4">
         <div class="flex justify-between items-center">
           <a href="index.html">
-            <img src="assets/images/logo-w.png" alt="Logo" class="h-20 hidden lg:block">
-            <img src="assets/images/logo.png" alt="Logo" class="h-20 lg:hidden">
+            <img src="assets/images/logo-w.png" alt="Logo" class="h-16 md:h-20 hidden lg:block">
+            <img src="assets/images/logo.png" alt="Logo" class="h-16 md:h-20 lg:hidden">
           </a>
           <nav class="flex lg:relative lg:top-0 lg:left-0 lg:w-auto lg:h-auto  lg:px-14 lg:rounded-full lg:py-2 lg:z-auto lg:items-center  absolute top-full right-0 md:w-1/2 z-50 h-[95vh] py-10 flex-col justify-between w-full" id="menu">
             <!---
@@ -36,16 +36,15 @@
               <li class="lg:w-auto w-full"><a href="index.html" class="lg:border-b-0 border-b border-gray-300 md:w-auto w-full block py-1  lg:text-white text-black hover:text-sahin font-normal text-sm transition-colors duration-200">Anasayfa</a></li>
               <li class="lg:w-auto w-full"><a href="hakkimizda.html" class="lg:border-b-0 border-b border-gray-300 md:w-auto w-full block py-1  lg:text-white text-black hover:text-sahin font-normal text-sm transition-colors duration-200">Hakkımızda</a></li>
               <li class="lg:w-auto w-full relative group">
-                <button onclick="toggleDropdown(this)" class="lg:border-b-0 border-b border-gray-300 md:w-auto w-full block py-1 flex items-center py-2 gap-2 lg:text-white text-black hover:text-sahin font-normal text-sm transition-colors duration-200">
+                <button onclick="toggleDropdown(this)" class="lg:border-b-0 border-b border-gray-300 md:w-auto w-full  py-1 flex items-center lg:py-2 gap-2 lg:text-white text-black hover:text-sahin font-normal text-sm transition-colors duration-200">
                   <span>Projeler</span>
                   <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 transition-transform duration-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <polyline points="6 9 12 15 18 9"></polyline>
                   </svg>
                 </button>
                 <ul class="dropdown-menu absolute lg:w-48 w-full top-full left-0  bg-white shadow-lg rounded-md py-2 opacity-0 invisible lg:group-hover:opacity-100 lg:group-hover:visible transition-all duration-200">
-                  <li class="lg:w-auto w-full"><a href="#" class="block lg:px-4 py-2 !text-black hover:text-sahin font-normal text-xs border-b border-gray-200 ">Proje 1</a></li>
-                  <li class="lg:w-auto w-full"><a href="#" class="block lg:px-4 py-2 !text-black hover:text-sahin font-normal text-xs border-b border-gray-200 ">Proje 2</a></li>
-                  <li class="lg:w-auto w-full"><a href="#" class="block lg:px-4 py-2 !text-black hover:text-sahin font-normal text-xs border-b border-gray-200 ">Proje 3</a></li>
+                  <li class="lg:w-auto w-full"><a href="#" class="block lg:px-4 py-2 !text-black hover:text-sahin font-normal text-xs border-b border-gray-200 ">Devam Eden Projeler</a></li>
+                  <li class="lg:w-auto w-full"><a href="#" class="block lg:px-4 py-2 !text-black hover:text-sahin font-normal text-xs border-b border-gray-200 ">Tamamlanan Projeler</a></li>
                 </ul>
               </li>
               <li class="lg:w-auto w-full"><a href="iletisim.html" class="lg:border-b-0 border-b border-gray-300 md:w-auto w-full block py-1 lg:text-white text-black hover:text-gray-900 font-normal text-sm transition-colors duration-200">İletişim</a></li>
@@ -95,7 +94,7 @@
 
   <!-- Slider -->
 
-    <section class="bg-amber-200 relative md:mt-0 mt-[112px]">
+    <section class="bg-amber-200 relative md:mt-0 mt-[90px]">
       <div class="swiper homeSlider">
         <div class="swiper-wrapper">
           <div class="swiper-slide bg-cover bg-no-repeat relative after:content-[''] after:absolute after:inset-0 after:bg-black/50 after:z-10 bg-center lg:!h-[700px]  md:!h-[500px] !h-[400px]" style="background-image: url('assets/images/slider.png');">
