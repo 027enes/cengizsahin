@@ -769,15 +769,6 @@
   .mt-\[90px\] {
     margin-top: 90px;
   }
-  .mt-\[100px\] {
-    margin-top: 100px;
-  }
-  .mt-\[110px\] {
-    margin-top: 110px;
-  }
-  .mt-\[112px\] {
-    margin-top: 112px;
-  }
   .mb-4 {
     margin-bottom: calc(var(--spacing) * 4);
   }
@@ -904,17 +895,17 @@
   .h-\[2px\] {
     height: 2px;
   }
-  .h-\[300px\] {
-    height: 300px;
-  }
-  .h-\[400px\] {
-    height: 400px;
-  }
   .h-\[40vh\] {
     height: 40vh;
   }
   .h-\[95vh\] {
     height: 95vh;
+  }
+  .h-\[300px\] {
+    height: 300px;
+  }
+  .h-\[400px\] {
+    height: 400px;
   }
   .h-full {
     height: 100%;
@@ -930,9 +921,6 @@
   }
   .min-h-screen {
     min-height: 100vh;
-  }
-  .w-1 {
-    width: calc(var(--spacing) * 1);
   }
   .w-1\/2 {
     width: calc(1/2 * 100%);
@@ -999,9 +987,6 @@
   }
   .grow {
     flex-grow: 1;
-  }
-  .basis-1 {
-    flex-basis: calc(var(--spacing) * 1);
   }
   .basis-1\/3 {
     flex-basis: calc(1/3 * 100%);
@@ -2801,11 +2786,6 @@
       display: block;
     }
   }
-  .md\:flex {
-    @media (width >= 48rem) {
-      display: flex;
-    }
-  }
   .md\:\!h-\[500px\] {
     @media (width >= 48rem) {
       height: 500px !important;
@@ -3031,11 +3011,6 @@
       display: block;
     }
   }
-  .lg\:flex {
-    @media (width >= 64rem) {
-      display: flex;
-    }
-  }
   .lg\:hidden {
     @media (width >= 64rem) {
       display: none;
@@ -3044,11 +3019,6 @@
   .lg\:\!h-\[700px\] {
     @media (width >= 64rem) {
       height: 700px !important;
-    }
-  }
-  .lg\:h-20 {
-    @media (width >= 64rem) {
-      height: calc(var(--spacing) * 20);
     }
   }
   .lg\:h-\[500px\] {
@@ -3114,12 +3084,6 @@
   .lg\:rounded-full {
     @media (width >= 64rem) {
       border-radius: calc(infinity * 1px);
-    }
-  }
-  .lg\:border {
-    @media (width >= 64rem) {
-      border-style: var(--tw-border-style);
-      border-width: 1px;
     }
   }
   .lg\:border-b-0 {
@@ -3356,8 +3320,8 @@
     position: fixed;
     transform: translateX(100%);
     transition: transform 0.3s ease;
-    top: 110px;
-    height: calc(100vh - 110px);
+    top: 95px;
+    height: calc(100vh - 95px);
     visibility: hidden;
     opacity: 0;
     z-index: 999;

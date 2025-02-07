@@ -212,8 +212,8 @@
     position: fixed;
     transform: translateX(100%);
     transition: transform 0.3s ease;
-    top: 110px;
-    height: calc(100vh - 110px);
+    top: 95px;
+    height: calc(100vh - 95px);
     visibility: hidden;
     opacity: 0;
     z-index: 999;
