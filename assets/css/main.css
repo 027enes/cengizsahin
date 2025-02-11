@@ -395,3 +395,8 @@ body.menu-open {
 .tab-content:not(.active) {
   display: none !important;
 }
+
+[x-cloak] {
+  display: none !important;
+}
+

@@ -12,6 +12,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
+  <script src="//unpkg.com/alpinejs" defer></script>
+
 </head>
 <body>
   <div class="page-wrapper overflow-x-hidden min-h-screen">
@@ -102,7 +104,7 @@
         <div class="absolute top-0 left-0 w-full h-full bg-black/50"></div>
         <div class="container mx-auto px-4 relative z-10 flex flex-col justify-center items-center h-full">
           <h1 class="text-white text-4xl font-medium md:max-w-2xl !font-playfair italic animate-title md:mb-0 mb-10">
-              Projeler
+              Proje Detayı
           </h1>
         </div>
         <div class="absolute bottom-0 left-0 w-full z-40">
@@ -122,85 +124,164 @@
           </div>
         </div>
       </section>
-      <section class="relative">
-        <div class="grid md:grid-cols-2 grid-cols-1 border-b border-gray-400" id="tabs">
-            <div class="border-r border-gray-400 last:border-r-0 h-14 text-center flex items-center justify-center hover:text-sahin transition-colors duration-200">
-                <button data-tab="devam-eden" class="tab-button text-black font-medium text-sm w-full h-full flex items-center justify-center hover:bg-sahin hover:text-white transition-colors duration-200">Devam Eden Projeler</button>
-            </div>
-            <div class="border-r border-gray-400 last:border-r-0 h-14 text-center flex items-center justify-center hover:text-sahin transition-colors duration-200">
-                <button data-tab="tamamlanan" class="tab-button text-black font-medium text-sm w-full h-full flex items-center justify-center hover:bg-sahin hover:text-white transition-colors duration-200">Tamamlanan Projeler</button>
-            </div>
-        </div>
-      </section>
 
-      <section class="md:py-24 py-12 relative about-section">
-        <div class="content-lines-inner">
-            <div class="grid grid-cols-6 h-full w-full">
-                <div class="border-l border-gray-100"></div>
-                <div class="border-l border-gray-100"></div>
-                <div class="border-l border-gray-100"></div>
-                <div class="border-l border-gray-100"></div>
-                <div class="border-l border-gray-100"></div>
-                <div class="border-l border-gray-100"></div>
+      
+    <section class="bg-sahin/10 py-8 stats-section border-b border-gray-300">
+        <div class="container mx-auto px-4">
+          <div class="lg:flex grid grid-cols-2 md:grid-cols-2 lg:justify-center justify-start lg:gap-20 gap-8">
+              <!--İtem-->
+              <div class="flex gap-2 items-center md:justify-center md:border-r md:border-b-0 border-b last:border-b-0 md:pb-0 pb-4 md:w-auto w-full  md:pr-16 pr-4 border-gray-300 last:border-r-0">
+                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="38" height="38" x="0" y="0" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g><path d="M471.982 417.008Q472 416.5 472 416a32.036 32.036 0 0 0-32-32V236l28.8-21.6a8 8 0 0 0-.08-12.859L400 151.322V64a8 8 0 0 0 8-8V24a8 8 0 0 0-8-8h-80a8 8 0 0 0-8 8v32a8 8 0 0 0 8 8v28.861l-59.28-43.32a8 8 0 0 0-9.44 0l-208 152a8 8 0 0 0-.08 12.859L72 236v148a32.036 32.036 0 0 0-32 32q0 .5.018 1.008A32 32 0 0 0 48 480h416a32 32 0 0 0 7.982-62.992ZM328 32h64v16h-64Zm8 72V64h48v75.63L335.243 104Zm-80-38.092 194.555 142.176-18.628 13.971L260.706 97.53a8 8 0 0 0-9.412 0L80.073 222.055l-18.628-13.971ZM32 448a16.019 16.019 0 0 1 15.76-16h.019c.409.057.818.106 1.235.133a8 8 0 0 0 8.023-10.716A15.727 15.727 0 0 1 56 416a16.019 16.019 0 0 1 16-16v64H48a16.019 16.019 0 0 1-16-16Zm344 16h-96V288h96Zm16 0V280a8 8 0 0 0-8-8H272a8 8 0 0 0-8 8v184H88V236.074l168-122.182 168 122.182V464Zm72 0h-24v-64a16.019 16.019 0 0 1 16 16 15.727 15.727 0 0 1-1.037 5.421 8 8 0 0 0 8.023 10.716c.417-.027.826-.076 1.235-.133h.019a16 16 0 0 1-.24 32Z" fill="#000000" opacity="1" data-original="#000000" class=""></path><path d="M224 272h-96a8 8 0 0 0-8 8v112a8 8 0 0 0 8 8h96a8 8 0 0 0 8-8V280a8 8 0 0 0-8-8Zm-8 56h-32v-40h32Zm-48-40v40h-32v-40Zm-32 56h32v40h-32Zm48 40v-40h32v40Z" fill="#000000" opacity="1" data-original="#000000" class=""></path><circle cx="304" cy="368" r="8" transform="rotate(-67.5 304 368)" fill="#000000" opacity="1" data-original="#000000" class=""></circle></g></svg> 
+                <div class="flex flex-col gap-0 leading-0">
+                  <span class="font-normal text-xs">
+                    Proje Yılı
+                  </span>
+                  <h4 class="text-md mt-2 font-bold"><span data-purecounter-duration="2" data-purecounter-start="0" data-purecounter-end="2024" class="purecounter">2024</span></h4>
+                </div>
+            </div>
+            <!--İtem-->
+            <div class="flex gap-2 items-center md:justify-center md:border-r md:border-b-0 border-b last:border-b-0 md:pb-0 pb-4 md:w-auto w-full  md:pr-16 pr-4 border-gray-300 last:border-r-0">
+                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="38" height="38" x="0" y="0" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g><path d="M93.867 426.667h409.6c5.12 0 8.533-3.413 8.533-8.533V8.533C512 3.413 508.587 0 503.467 0H93.866c-5.12 0-8.533 3.413-8.533 8.533V418.133c0 5.12 3.414 8.534 8.534 8.534zm8.533-136.534h85.333c-4.267 45.227-40.107 81.067-85.333 85.333v-85.333zm0-273.066h136.533v51.2H230.4c-5.12 0-8.533 3.413-8.533 8.533s3.413 8.533 8.533 8.533h34.133c5.12 0 8.533-3.413 8.533-8.533s-3.413-8.533-8.533-8.533H256v-51.2h76.8v93.867c0 5.12 3.413 8.533 8.533 8.533h34.133V128c0 5.12 3.413 8.533 8.533 8.533s8.533-3.413 8.533-8.533V93.867c0-5.12-3.413-8.533-8.533-8.533s-8.533 3.413-8.533 8.533v8.533h-25.6V17.067h145.067V102.4H460.8v-8.533c0-5.12-3.413-8.533-8.533-8.533-5.12 0-8.533 3.413-8.533 8.533V128c0 5.12 3.413 8.533 8.533 8.533 5.12 0 8.533-3.413 8.533-8.533v-8.533h34.133V256h-51.2v-8.533c0-5.12-3.413-8.533-8.533-8.533s-8.533 3.413-8.533 8.533V281.6c0 5.12 3.413 8.533 8.533 8.533s8.533-3.413 8.533-8.533v-8.533h51.2V409.6H307.2V273.067h51.2v8.533c0 5.12 3.413 8.533 8.533 8.533s8.533-3.413 8.533-8.533v-34.133c0-5.12-3.413-8.533-8.533-8.533s-8.533 3.413-8.533 8.533V256h-59.733c-5.12 0-8.533 3.413-8.533 8.533V409.6H102.4v-17.388c57.425-4.332 102.4-52.044 102.4-110.612 0-5.12-3.413-8.533-8.533-8.533H102.4v-51.2h145.067c5.12 0 8.533-3.413 8.533-8.533V153.6h8.533c5.12 0 8.533-3.413 8.533-8.533 0-5.12-3.413-8.533-8.533-8.533H230.4c-5.12 0-8.533 3.413-8.533 8.533 0 5.12 3.413 8.533 8.533 8.533h8.533v51.2H102.4V17.067zM65.707 424.107c3.413-3.413 3.413-8.533 0-11.947-3.413-3.413-8.533-3.413-11.947 0l-11.093 11.093V29.013L53.76 40.107c1.707 1.707 3.413 2.56 5.973 2.56s4.267-.853 5.973-2.56c3.413-3.413 3.413-8.533 0-11.947L41.567 4.02C40.172 1.511 37.532 0 34.133 0s-6.038 1.511-7.434 4.02L2.56 28.16c-3.413 3.413-3.413 8.533 0 11.947s8.533 3.413 11.947 0L25.6 29.013v394.24L14.507 412.16c-3.413-3.413-8.533-3.413-11.947 0-3.413 3.413-3.413 8.533 0 11.947l24.14 24.14c1.395 2.509 4.034 4.02 7.434 4.02 3.399 0 6.038-1.511 7.433-4.02l24.14-24.14zM512 477.874v-.016c-.002-3.395-1.512-6.031-4.02-7.426l-24.14-24.14c-3.413-3.413-8.533-3.413-11.947 0-3.413 3.413-3.413 8.533 0 11.947l11.093 11.093H88.747L99.84 458.24c3.413-3.413 3.413-8.533 0-11.947-3.413-3.413-8.533-3.413-11.947 0l-24.14 24.14c-2.509 1.395-4.02 4.034-4.02 7.434s1.511 6.038 4.02 7.434l24.14 24.14c1.707 1.707 3.413 2.56 5.973 2.56s4.267-.853 5.973-2.56c3.413-3.413 3.413-8.533 0-11.947L88.747 486.4h394.24l-11.093 11.093c-3.413 3.413-3.413 8.533 0 11.947 1.707 1.707 3.413 2.56 5.973 2.56s4.267-.853 5.973-2.56l24.14-24.14c2.507-1.394 4.017-4.03 4.02-7.426z" fill="#000000" opacity="1" data-original="#000000" class=""></path></g></svg>              <div class="flex flex-col gap-0 leading-0">
+                <span class="font-normal text-xs">Yaşam Alanı</span>
+                <h4 class="text-md mt-2 font-bold"><span data-purecounter-duration="2" data-purecounter-start="0"  data-purecounter-end="100" class="purecounter">100</span> m <sup>2</sup></h4>
               </div>
-        </div>
-        <div class="container mx-auto px-4" id="content">
-            <div class="tab-content active" data-tab="devam-eden">
-                <h1 class="text-black text-4xl font-medium md:max-w-2xl !font-playfair italic md:mb-0 mb-10">
-                    Devam Eden Projeler
-                </h1>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 justify-between flex-wrap  gap-8 pt-8 pb-16">
-                  <div class="group col-span-1 relative h-[300px] rounded-lg overflow-hidden">
-                    <a href="proje-detay.html" class="w-full h-full block relative hover:after:bg-black/50 transition-all duration-200 after:content-[''] after:absolute after:inset-0 after:z-10">
-                      <img src="assets/images/about.png" alt="Project" class="w-full h-full object-cover">
-                      <div class="absolute left-0 bottom-0 z-20 container mx-auto px-4 h-full text-white flex flex-col justify-end pb-4 items-start">
-                        <h1 class="text-xl font-medium text-left max-w-2xl animate-subtitle">Söğütlüce Konutları</h1>
-                        <div class="overflow-hidden">
-                          <div class="flex items-center gap-2 group-hover:translate-y-0 translate-y-full transition-transform duration-300">
-                            <span class="relative">
-                              Proje Detay
-                              <span class="absolute -bottom-1 left-0 w-full h-[1px] bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
-                            </span>
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                              <path d="M5 12h14M12 5l7 7-7 7"/>
-                            </svg>
-                          </div>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
+            </div>
+  
+            <!--İtem-->
+            <div class="flex gap-2 items-center md:justify-center md:border-r md:border-b-0 border-b last:border-b-0 md:pb-0 pb-4 md:w-auto w-full  md:pr-16 pr-4 border-gray-300 last:border-r-0">
+                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="38" height="38" x="0" y="0" viewBox="0 0 480 480" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g><path d="M304 304.808V232c0-13.232-10.768-24-24-24H56c-13.232 0-24 10.768-24 24v72.808C13.768 308.528 0 324.688 0 344v128c0 4.416 3.584 8 8 8h32c4.416 0 8-3.584 8-8v-24h240v24c0 4.416 3.584 8 8 8h32c4.416 0 8-3.584 8-8V344c0-19.312-13.768-35.472-32-39.192zM48 232c0-4.408 3.592-8 8-8h224c4.408 0 8 3.592 8 8v72h-16v-32c0-13.232-10.768-24-24-24h-48c-13.232 0-24 10.768-24 24v32h-16v-32c0-13.232-10.768-24-24-24H88c-13.232 0-24 10.768-24 24v32H48v-72zm208 40v32h-64v-32c0-4.408 3.592-8 8-8h48c4.408 0 8 3.592 8 8zm-112 0v32H80v-32c0-4.408 3.592-8 8-8h48c4.408 0 8 3.592 8 8zm176 192h-16v-24c0-4.416-3.584-8-8-8H40c-4.416 0-8 3.584-8 8v24H16v-64h304v64zm0-80H16v-40c0-13.232 10.768-24 24-24h256c13.232 0 24 10.768 24 24v40zM472 304H360c-4.416 0-8 3.584-8 8v120h16v-48h96v48h16V312c0-4.416-3.584-8-8-8zm-8 64h-96v-48h96v48z" fill="#000000" opacity="1" data-original="#000000" class=""></path><path d="M400 336h32v16h-32zM455.592 237.464l-16-48A8.004 8.004 0 0 0 432 184h-32a8 8 0 0 0-7.592 5.472l-16 48a7.993 7.993 0 0 0 1.104 7.208A7.995 7.995 0 0 0 384 248h24v24h-16v16h48v-16h-16v-24h24a7.98 7.98 0 0 0 6.488-3.328 8.018 8.018 0 0 0 1.104-7.208zM395.096 232l10.672-32h20.472l10.664 32h-41.808z" fill="#000000" opacity="1" data-original="#000000" class=""></path><path d="m475.272 104.696-232-104a8.04 8.04 0 0 0-6.544 0l-232 104A8.007 8.007 0 0 0 0 112v96h16v-90.824L240 16.768l224 100.416V208h16v-96a8.007 8.007 0 0 0-4.728-7.304z" fill="#000000" opacity="1" data-original="#000000" class=""></path><path d="m295.224 110.672-15.784 2.656A39.39 39.39 0 0 1 280 120c0 22.056-17.944 40-40 40s-40-17.944-40-40 17.944-40 40-40c4.576 0 9.072.768 13.344 2.28l5.328-15.088A55.82 55.82 0 0 0 240 64c-30.88 0-56 25.12-56 56s25.12 56 56 56 56-25.12 56-56a56.6 56.6 0 0 0-.776-9.328z" fill="#000000" opacity="1" data-original="#000000" class=""></path><path d="M290.344 66.344 240 116.688l-10.344-10.344-11.312 11.312 16 16A7.978 7.978 0 0 0 240 136a7.978 7.978 0 0 0 5.656-2.344l56-56-11.312-11.312z" fill="#000000" opacity="1" data-original="#000000" class=""></path></g></svg>              <div class="flex flex-col gap-0 leading-0">
+                <span class="font-normal text-xs">Oda Sayısı</span>
+                <h4 class="text-md mt-2 font-bold"><span data-purecounter-duration="2" data-purecounter-start="0" data-purecounter-end="4" class="purecounter">4</span></h4>
+              </div>
+            </div>
+  
+            <!--İtem-->
+            <div class="flex gap-2 items-center md:justify-center md:border-r md:border-b-0 border-b lg:last:border-b-0 md:pb-0 pb-4 md:w-auto w-full  md:pr-16 pr-4 border-gray-300 last:border-r-0">
+                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="38" height="38" x="0" y="0" viewBox="0 0 512.001 512.001" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g><path d="m511.512 501.838-75-197.57a7.5 7.5 0 0 0-3.33-3.872l-79.886-45.006 23.323-36.98c14.314-22.714 21.881-48.963 21.881-75.909 0-78.575-63.925-142.5-142.5-142.5s-142.5 63.925-142.5 142.5c0 26.953 7.57 53.203 21.892 75.911l23.317 36.98-79.889 45.004a7.498 7.498 0 0 0-3.331 3.872l-75 197.57a7.502 7.502 0 0 0 10.693 9.197l120.568-67.926 120.568 67.926a7.503 7.503 0 0 0 7.363 0l120.568-67.926 120.568 67.926a7.497 7.497 0 0 0 8.573-.847 7.501 7.501 0 0 0 2.122-8.35zM263.501 388.712a22.436 22.436 0 0 0 11.521-9.217c.381-.6 64.229-101.834 64.229-101.834l32.519 153.008-108.269 60.996zM148.08 210.409c-12.809-20.31-19.579-43.792-19.579-67.909 0-70.304 57.196-127.5 127.5-127.5s127.5 57.196 127.5 127.5c0 24.112-6.768 47.596-19.569 67.909-1.001 1.587-99.823 158.299-101.547 161.006-.016.023-.03.047-.045.07-1.391 2.2-3.76 3.515-6.339 3.515-2.581 0-4.961-1.321-6.354-3.511-1.002-1.589-100.021-158.611-101.533-161.025l-.034-.055zM88.548 312.131l69.916-39.387-12.18 57.304a7.5 7.5 0 0 0 7.343 9.062 7.503 7.503 0 0 0 7.328-5.942l11.797-55.502 64.221 101.849a22.53 22.53 0 0 0 11.526 9.196v102.956L140.232 430.67l14.487-68.159a7.5 7.5 0 0 0-5.776-8.896 7.495 7.495 0 0 0-8.896 5.776l-14.929 70.236-103.256 58.174zm298.335 117.497L353.54 272.743l69.913 39.388 66.687 175.67z" fill="#000000" opacity="1" data-original="#000000"></path><path d="M338.501 142.5c0-45.49-37.01-82.5-82.5-82.5s-82.5 37.01-82.5 82.5 37.01 82.5 82.5 82.5 82.5-37.01 82.5-82.5zm-150 0c0-37.22 30.28-67.5 67.5-67.5s67.5 30.28 67.5 67.5-30.28 67.5-67.5 67.5-67.5-30.28-67.5-67.5z" fill="#000000" opacity="1" data-original="#000000"></path><path d="M308.501 142.5c0-28.948-23.552-52.5-52.5-52.5s-52.5 23.552-52.5 52.5 23.552 52.5 52.5 52.5 52.5-23.552 52.5-52.5zm-90 0c0-20.678 16.822-37.5 37.5-37.5s37.5 16.822 37.5 37.5-16.822 37.5-37.5 37.5-37.5-16.822-37.5-37.5z" fill="#000000" opacity="1" data-original="#000000"></path></g></svg>                <div class="flex flex-col gap-0 leading-0">
+                  <span class="font-normal text-xs">
+                    Lokasyon
+                  </span>
+                  <h4 class="text-md mt-2 font-bold"><span>İbrahimli</span></h4>
                 </div>
             </div>
-
-            <div class="tab-content" data-tab="tamamlanan">
-                <h1 class="text-black text-4xl font-medium md:max-w-2xl !font-playfair italic md:mb-0 mb-10">
-                    Tamamlanan Projeler
-                </h1>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 justify-between flex-wrap  gap-8 pt-8 pb-16" >
-                  <div class="group col-span-1 relative h-[300px] rounded-lg overflow-hidden">
-                    <a href="proje-detay.html" class="w-full h-full block relative hover:after:bg-black/50 transition-all duration-200 after:content-[''] after:absolute after:inset-0 after:z-10">
-                      <img src="assets/images/about.png" alt="Project" class="w-full h-full object-cover">
-                      <div class="absolute left-0 bottom-0 z-20 container mx-auto px-4 h-full text-white flex flex-col justify-end pb-4 items-start">
-                        <h1 class="text-xl font-medium text-left max-w-2xl animate-subtitle">Söğütlüce Konutları 2</h1>
-                        <div class="overflow-hidden">
-                          <div class="flex items-center gap-2 group-hover:translate-y-0 translate-y-full transition-transform duration-300">
-                            <span class="relative">
-                              Proje Detay
-                              <span class="absolute -bottom-1 left-0 w-full h-[1px] bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
-                            </span>
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                              <path d="M5 12h14M12 5l7 7-7 7"/>
-                            </svg>
-                          </div>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-            </div>
+  
+          </div>
         </div>
       </section>
-          
+
+
+      <section class="md:py-48 py-24 relative about-section">
+        <div class="content-lines-inner">
+          <div class="grid grid-cols-6 h-full w-full">
+            <div class="border-l border-gray-100"></div>
+            <div class="border-l border-gray-100"></div>
+            <div class="border-l border-gray-100"></div>
+            <div class="border-l border-gray-100"></div>
+            <div class="border-l border-gray-100"></div>
+            <div class="border-l border-gray-100"></div>
+          </div>
+        </div>
+        <div class="container mx-auto px-4">
+          <div class="flex flex-col lg:flex-row  gap-10">
+            <div class="lg:w-1/2 rounded-lg overflow-hidden flex items-center lg:h-[500px] md:h-[400px] sm:h-[300px] justify-center gap-4">
+              <img src="assets/images/about.png" alt="About" class="w-full h-full object-cover parallax-image" data-speed="0.5">
+              <img src="assets/images/about.png" alt="About" class="w-full h-full object-cover parallax-image" data-speed="-0.5">
+            </div>
+              <div class="lg:w-1/2 md:block flex flex-col items-center justify-center">
+                <h1 class="md:text-5xl text-3xl font-normal md:text-left text-center max-w-2xl !font-playfair italic animate-title">
+                  40 Yıllık Tecrübe,
+                </h1>
+                <h1 class="md:text-5xl text-3xl font-medium md:text-left text-center max-w-2xl animate-subtitle">Sonsuz Güven</h1>
+                <p class="text-gray-700 md:text-left text-center md:text-sm text-xs font-light mt-4 md:mb-10 mb-4 max-w-2xl animate-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
+               
+              </div>
+  
+          </div>
+
+        </div>
+    </section>
+
+
+    <section class="pb-24 relative project-details" x-data="{ activeTab: 'inner' }" x-cloak>
+        <div class="content-lines-inner">
+          <div class="grid grid-cols-6 h-full w-full">
+            <div class="border-l border-gray-100"></div>
+            <div class="border-l border-gray-100"></div>
+            <div class="border-l border-gray-100"></div>
+            <div class="border-l border-gray-100"></div>
+            <div class="border-l border-gray-100"></div>
+            <div class="border-l border-gray-100"></div>
+          </div>
+        </div>
+        <div class="container mx-auto px-4">
+            <div class="md:flex justify-center items-center grid grid-cols-2 gap-4">
+                <button 
+                    @click="activeTab = 'inner'"
+                    :class="activeTab === 'inner' ? 'bg-sahin text-white' : 'text-black'"
+                    class="border border-gray-500 px-4 py-2 rounded-md transition-colors">
+                    İç Görseller
+                </button>
+                <button 
+                    @click="activeTab = 'outer'"
+                    :class="activeTab === 'outer' ? 'bg-sahin text-white' : 'text-black'"
+                    class="border border-gray-500 px-4 py-2 rounded-md transition-colors">
+                    Dış Görseller
+                </button>
+                <button 
+                  @click="activeTab = 'address'"
+                  :class="activeTab === 'address' ? 'bg-sahin text-white' : 'text-black'"
+                  class="border border-gray-500 px-4 py-2 rounded-md transition-colors">
+                  Proje Adresi
+              </button>
+            </div>
+            <div class="relative w-full h-full mt-10">
+              <div x-show="activeTab === 'inner'" class="inner-gallery">
+                <div class="grid lg:grid-cols-4 grid-cols-2  gap-4">
+
+                  <div class="h-[180px] md:h-[250px] rounded-md overflow-hidden">
+                    <img src="assets/images/about.png" alt="Project Detail" class="w-full h-full object-cover">
+                  </div>
+
+                  <div class="h-[180px] md:h-[250px] rounded-md overflow-hidden">
+                    <img src="assets/images/about.png" alt="Project Detail" class="w-full h-full object-cover">
+                  </div>
+
+                  <div class="h-[180px] md:h-[250px] rounded-md overflow-hidden">
+                    <img src="assets/images/about.png" alt="Project Detail" class="w-full h-full object-cover">
+                  </div>
+
+                  <div class="h-[180px] md:h-[250px] rounded-md overflow-hidden">
+                    <img src="assets/images/about.png" alt="Project Detail" class="w-full h-full object-cover">
+                  </div>
+
+                  <div class="h-[180px] md:h-[250px] rounded-md overflow-hidden">
+                    <img src="assets/images/about.png" alt="Project Detail" class="w-full h-full object-cover">
+                  </div>
+
+                  
+                </div>
+              </div>
+              <div x-show="activeTab === 'outer'" class="outer-gallery mt-10">
+                <div class="grid lg:grid-cols-4 grid-cols-2  gap-4">
+
+                  <div class="h-[180px] md:h-[250px] rounded-md overflow-hidden">
+                    <img src="assets/images/about.png" alt="Project Detail" class="w-full h-full object-cover">
+                  </div>
+
+                </div>
+              </div>
+
+              <div x-show="activeTab === 'address'" class="address-section mt-10">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3183.4091206030766!2d37.3595563!3d37.071561700000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1531e144edd0f1bf%3A0xe35d4a7dc82a6b4c!2sMiova%20Reklam%20Ajans%C4%B1!5e0!3m2!1str!2str!4v1739269370323!5m2!1str!2str" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              </div>
+            </div>
+        </div>
+    </section>
+  
+    
+    
+    </section>
+      
     <footer class="bg-[#222222] footer-section">
         <div class="container mx-auto px-4">
           <div class="flex justify-between md:flex-row flex-col md:gap-0 gap-4 pt-14 pb-8">
@@ -326,68 +407,7 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/@srexi/purecounterjs/dist/purecounter_vanilla.js"></script>
-      <script>
-      document.addEventListener("DOMContentLoaded", function() {
-          new PureCounter();
-      });
-  
-      let tabs = document.querySelectorAll(".tab-button");
-    let contents = document.querySelectorAll(".tab-content");
-    let activeTab = document.querySelector(".tab-button.tab-content-active");
-    let activeContent = document.querySelector(".tab-content.active");
 
-    // İlk yüklemede aktif olmayan içerikleri gizle
-    contents.forEach(content => {
-        if (!content.classList.contains('active')) {
-            gsap.set(content, { display: 'none', opacity: 0 });
-        }
-    });
-
-    tabs.forEach(tab => {
-        tab.addEventListener("click", function() {
-            // Aktif tab'ı değiştir
-            if (activeTab) {
-                activeTab.classList.remove("tab-content-active");
-            }
-            tab.classList.add("tab-content-active");
-            activeTab = tab;
-
-            // İlgili içeriği bul
-            const targetId = tab.getAttribute("data-tab");
-            const targetContent = document.querySelector(`.tab-content[data-tab="${targetId}"]`);
-
-            if (targetContent && activeContent !== targetContent) {
-                // Eski içeriği gizle
-                gsap.to(activeContent, {
-                    opacity: 0,
-                    duration: 0.3,
-                    onComplete: () => {
-                        activeContent.style.display = 'none';
-                        
-                        // Yeni içeriği göster
-                        targetContent.style.display = 'block';
-                        gsap.fromTo(targetContent, 
-                            { opacity: 0, y: 20 },
-                            { 
-                                opacity: 1, 
-                                y: 0,
-                                duration: 0.5,
-                                ease: "power2.out"
-                            }
-                        );
-                    }
-                });
-
-                // Aktif içeriği güncelle
-                activeContent.classList.remove('active');
-                targetContent.classList.add('active');
-                activeContent = targetContent;
-            }
-        });
-    });
-
-      </script>
-  
     </div>
   
   </body>

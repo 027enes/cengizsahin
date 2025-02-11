@@ -616,4 +616,7 @@ document.addEventListener("DOMContentLoaded", function() {
             ease: "power2.out"
         }, "-=1");
     }
+
+    
+
 });
