@@ -1,11 +1,8 @@
-// Fonksiyonu global scope'a taşı
 function toggleDropdown(button) {
-    // Mobil kontrolü
-    if (window.innerWidth < 1024) { // lg breakpoint
+    if (window.innerWidth < 1024) {
         const dropdownMenu = button.nextElementSibling;
         const arrow = button.querySelector('svg');
         
-        // Diğer açık dropdownları kapat
         document.querySelectorAll('.dropdown-menu').forEach(menu => {
             if (menu !== dropdownMenu && menu.classList.contains('show-dropdown')) {
                 menu.classList.remove('show-dropdown');
@@ -13,16 +10,14 @@ function toggleDropdown(button) {
             }
         });
 
-        // Tıklanan dropdownı aç/kapat
         dropdownMenu.classList.toggle('show-dropdown');
         arrow.classList.toggle('rotate-180');
     }
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    // PureCounter'ı başlat
     new PureCounter({
-        selector: '.purecounter', // sayaç class'ı
+        selector: '.purecounter', 
         start: 0, 
         end: 100,
         duration: 2,
@@ -36,7 +31,6 @@ document.addEventListener('DOMContentLoaded', function() {
         separator: false,
     });
 
-    // Sayfa yüklendiğinde ve resize olduğunda kontrol et
     window.addEventListener('resize', () => {
       if (window.innerWidth >= 1024) {
         document.querySelectorAll('.dropdown-menu').forEach(menu => {
@@ -46,11 +40,9 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
 
-    // Scroll çubuğu genişliğini hesapla ve CSS değişkeni olarak kaydet
     const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
     document.documentElement.style.setProperty('--scrollbar-width', `${scrollbarWidth}px`);
 
-    // Menü toggle işlemini güncelle
     const menuToggle = document.getElementById('menuToggle');
     const menu = document.getElementById('menu');
     const overlay = document.querySelector('.mobile-menu-overlay');
@@ -59,15 +51,14 @@ document.addEventListener('DOMContentLoaded', function() {
       if (this.checked) {
         menu.classList.add('active');
         overlay.classList.add('active');
-        document.body.classList.add('menu-open'); // body'e class ekle
+        document.body.classList.add('menu-open'); 
       } else {
         menu.classList.remove('active');
         overlay.classList.remove('active');
-        document.body.classList.remove('menu-open'); // body'den class'ı kaldır
+        document.body.classList.remove('menu-open');
       }
     });
 
-    // Overlay'e tıklandığında menüyü kapat
     overlay.addEventListener('click', function() {
       menuToggle.checked = false;
       menu.classList.remove('active');
@@ -75,7 +66,6 @@ document.addEventListener('DOMContentLoaded', function() {
       document.body.classList.remove('menu-open');
     });
 
-    // Throttle fonksiyonu
     function throttle(func, limit) {
       let inThrottle;
       return function() {
@@ -89,13 +79,11 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     }
 
-    // Sadece masaüstü için scroll efekti
     const header = document.querySelector('header');
     const menuItems = header.querySelectorAll('nav a, nav button');
     const whiteLogo = header.querySelector('img.hidden.lg\\:block');
     const coloredLogo = header.querySelector('img.lg\\:hidden');
 
-    // Başlangıçta menü öğelerine beyaz renk ekle
     if (window.innerWidth >= 1024) {
       menuItems.forEach(item => {
         item.classList.add('lg:text-white');
@@ -103,11 +91,9 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     window.addEventListener('scroll', throttle(() => {
-      // Sadece masaüstünde çalış
       if (window.innerWidth >= 1024) {
         if (window.scrollY > 75) {
           header.classList.add('bg-white', 'shadow-md');
-          // Logo ve menü renk değişimleri
           whiteLogo.classList.remove('lg:block');
           coloredLogo.classList.remove('lg:hidden');
           
@@ -119,7 +105,6 @@ document.addEventListener('DOMContentLoaded', function() {
           });
         } else {
           header.classList.remove('bg-white', 'shadow-md');
-          // Logo ve menü renklerini geri al
           whiteLogo.classList.add('lg:block');
           coloredLogo.classList.add('lg:hidden');
           
@@ -133,7 +118,6 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     }, 100));
 
-    // Resize olayında da kontrol et
     window.addEventListener('resize', () => {
       if (window.innerWidth >= 1024 && window.scrollY <= 150) {
         menuItems.forEach(item => {
@@ -141,5 +125,62 @@ document.addEventListener('DOMContentLoaded', function() {
           item.classList.add('lg:text-white');
         });
       }
+    });
+
+    const tabs = document.querySelectorAll(".tab-button");
+    const contents = document.querySelectorAll(".tab-content");
+    const menuLinks = document.querySelectorAll("a[href*='projeler.html?tab=']");
+    
+    function setActiveTab(tabId) {
+        // Tüm butonları ve içerikleri sıfırla
+        tabs.forEach(tab => tab.classList.remove('active'));
+        contents.forEach(content => content.style.display = 'none');
+        
+        // İlgili butonu ve içeriği aktif yap
+        const targetTab = document.querySelector(`.tab-button[data-tab="${tabId}"]`);
+        const targetContent = document.querySelector(`.tab-content[data-tab="${tabId}"]`);
+        
+        if (targetTab) {
+            targetTab.classList.add('active');
+        }
+        
+        if (targetContent) {
+            targetContent.style.display = 'block';
+        }
+    }
+
+    // Sayfa yüklendiğinde URL'den tab'ı kontrol et
+    const urlParams = new URLSearchParams(window.location.search);
+    const activeTabParam = urlParams.get('tab');
+    
+    if (activeTabParam) {
+        setActiveTab(activeTabParam);
+    } else if (tabs.length > 0) {
+        // URL'de parametre yoksa ilk tab'ı göster
+        const firstTabId = tabs[0].getAttribute('data-tab');
+        setActiveTab(firstTabId);
+    }
+
+    // Menü linklerine tıklama olayı
+    menuLinks.forEach(link => {
+        link.addEventListener("click", function(e) {
+            e.preventDefault();
+            const url = new URL(this.href);
+            const tabId = url.searchParams.get('tab');
+            
+            window.history.pushState({}, '', this.href);
+            setActiveTab(tabId);
+        });
+    });
+
+    // Tab butonlarına tıklama olayı
+    tabs.forEach(tab => {
+        tab.addEventListener("click", function() {
+            const tabId = this.getAttribute('data-tab');
+            
+            const newUrl = `projeler.html?tab=${tabId}`;
+            window.history.pushState({}, '', newUrl);
+            setActiveTab(tabId);
+        });
     });
 });

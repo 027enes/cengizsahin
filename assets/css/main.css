@@ -382,3 +382,16 @@ body.menu-open {
     left: 100px !important;
   }
 }
+
+
+.tab-content {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+.tab-content-active {
+    @apply bg-sahin text-white;
+}
+
+.tab-content:not(.active) {
+  display: none !important;
+}
