@@ -889,14 +889,11 @@
   .h-20 {
     height: calc(var(--spacing) * 20);
   }
-  .h-\[0px\] {
-    height: 0px;
+  .h-\[180px\] {
+    height: 180px;
   }
   .h-\[1px\] {
     height: 1px;
-  }
-  .h-\[250px\] {
-    height: 250px;
   }
   .h-\[2px\] {
     height: 2px;
@@ -913,15 +910,6 @@
   .h-\[95vh\] {
     height: 95vh;
   }
-  .h-\[150px\] {
-    height: 150px;
-  }
-  .h-\[180px\] {
-    height: 180px;
-  }
-  .h-\[200px\] {
-    height: 200px;
-  }
   .h-full {
     height: 100%;
   }
@@ -936,9 +924,6 @@
   }
   .min-h-screen {
     min-height: 100vh;
-  }
-  .w-1 {
-    width: calc(var(--spacing) * 1);
   }
   .w-1\/2 {
     width: calc(1/2 * 100%);
@@ -985,9 +970,6 @@
   .min-w-screen {
     min-width: 100vw;
   }
-  .flex-1 {
-    flex: 1;
-  }
   .flex-auto {
     flex: auto;
   }
@@ -1008,9 +990,6 @@
   }
   .grow {
     flex-grow: 1;
-  }
-  .basis-1 {
-    flex-basis: calc(var(--spacing) * 1);
   }
   .basis-1\/3 {
     flex-basis: calc(1/3 * 100%);
@@ -3440,7 +3419,7 @@ body.menu-open {
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
-.projectsSlider .swiper-button-next, .projectsSlider .swiper-button-prev {
+.projectsSliderBtn .swiper-button-next, .projectsSliderBtn .swiper-button-prev {
   width: auto !important;
   min-width: 40px !important;
   height: 40px !important;
@@ -3455,27 +3434,27 @@ body.menu-open {
   justify-content: center !important;
   gap: 8px !important;
 }
-.projectsSlider .swiper-button-next:hover, .projectsSlider .swiper-button-prev:hover {
+.projectsSliderBtn .swiper-button-next:hover, .projectsSliderBtn .swiper-button-prev:hover {
   background: var(--color-sahin) !important;
   border-color: var(--color-sahin) !important;
   color: white !important;
 }
-.projectsSlider .swiper-button-next:after, .projectsSlider .swiper-button-prev:after {
+.projectsSliderBtn .swiper-button-next:after, .projectsSliderBtn .swiper-button-prev:after {
   font-size: 16px !important;
   font-weight: bold !important;
   position: static !important;
   margin: 0 !important;
   transform: none !important;
 }
-.projectsSlider .swiper-button-next:before {
+.projectsSliderBtn .swiper-button-next:before {
   visibility: hidden !important;
   opacity: 0 !important;
 }
-.projectsSlider .swiper-button-next {
+.projectsSliderBtn .swiper-button-next {
   left: auto !important;
   right: -30px !important;
 }
-.projectsSlider .swiper-button-prev {
+.projectsSliderBtn .swiper-button-prev {
   left: -100px !important;
   flex-direction: row-reverse !important;
 }

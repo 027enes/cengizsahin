@@ -271,8 +271,8 @@ body.menu-open {
 }
 
 /* Swiper navigation butonları için özel stiller */
-.projectsSlider .swiper-button-next,
-.projectsSlider .swiper-button-prev {
+.projectsSliderBtn .swiper-button-next,
+.projectsSliderBtn .swiper-button-prev {
   width: auto !important;
   min-width: 40px !important;
   height: 40px !important;
@@ -288,15 +288,15 @@ body.menu-open {
   gap: 8px !important;
 }
 
-.projectsSlider .swiper-button-next:hover,
-.projectsSlider .swiper-button-prev:hover {
+.projectsSliderBtn .swiper-button-next:hover,
+.projectsSliderBtn .swiper-button-prev:hover {
   background: var(--color-sahin) !important;
   border-color: var(--color-sahin) !important;
   color: white !important;
 }
 
-.projectsSlider .swiper-button-next:after,
-.projectsSlider .swiper-button-prev:after {
+.projectsSliderBtn .swiper-button-next:after,
+.projectsSliderBtn .swiper-button-prev:after {
   font-size: 16px !important;
   font-weight: bold !important;
   position: static !important;
@@ -305,17 +305,17 @@ body.menu-open {
 }
 
 
-.projectsSlider .swiper-button-next:before {
+.projectsSliderBtn .swiper-button-next:before {
   visibility: hidden !important;
   opacity: 0 !important;
 }
 
-.projectsSlider .swiper-button-next {
+.projectsSliderBtn .swiper-button-next {
   left: auto !important;
   right: -30px !important;
 }
 
-.projectsSlider .swiper-button-prev {
+.projectsSliderBtn .swiper-button-prev {
   left: -100px !important;
   flex-direction: row-reverse !important;
 }
@@ -398,5 +398,4 @@ body.menu-open {
 
 [x-cloak] {
   display: none !important;
-}
-
+} 
